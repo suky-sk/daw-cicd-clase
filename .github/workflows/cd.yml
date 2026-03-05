@@ -1,0 +1,70 @@
+# =============================================================
+# CD - DESPLIEGUE CONTINUO
+# =============================================================
+# Cada vez que se fusiona un PR en main, este workflow:
+#   1. Recoge todos los archivos de alumnos/
+#   2. Genera la galería en index.html con las contribuciones
+#   3. Despliega la web actualizada en GitHub Pages
+# =============================================================
+
+name: CD - Despliegue a GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Generar galería con las contribuciones
+        run: |
+          echo "📊 Recopilando contribuciones de alumnos/..."
+
+          # Concatenar todos los archivos de contribución
+          > /tmp/galeria.html
+          TOTAL=0
+          for f in alumnos/*.html; do
+            [ "$(basename "$f")" = "ejemplo.html" ] && continue
+            cat "$f" >> /tmp/galeria.html
+            echo "" >> /tmp/galeria.html
+            TOTAL=$((TOTAL+1))
+          done
+
+          echo "   Encontradas $TOTAL contribuciones"
+
+          # Insertar las contribuciones en index.html entre los marcadores
+          python3 << 'PYEOF'
+          import re
+
+          with open('/tmp/galeria.html', 'r') as f:
+              galeria = f.read().strip()
+
+          with open('index.html', 'r') as f:
+              html = f.read()
+
+          nuevo = re.sub(
+              r'(<!-- INICIO GALERÍA -->).*?(<!-- FIN GALERÍA -->)',
+              lambda m: m.group(1) + '\n' + galeria + '\n' + m.group(2),
+              html,
+              flags=re.DOTALL
+          )
+
+          with open('index.html', 'w') as f:
+              f.write(nuevo)
+
+          print("✅ index.html actualizado con la galería")
+          PYEOF
+
+      - name: Desplegar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
