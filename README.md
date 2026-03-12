@@ -128,7 +128,7 @@ Ahora vas a añadir tu página al mural colectivo de la clase. Tu contribución 
 
 **Entregables**
 
-1. **Respuestas a las preguntas:** Un documento con las respuestas a la **Pregunta 1** (Paso 7) y a la **Pregunta 2** (Actividad 1).
+1. **Respuestas a las preguntas:** Un documento con las respuestas a la **Pregunta 1** (Paso 7) y a la **Pregunta 2** (Paso 8).
 2. **Verificación web:** Tu página personal debe estar listada y visible correctamente en el mural de la clase.
 
 ### Paso 1: Hacer fork del repositorio de clase
@@ -219,11 +219,7 @@ Verás las tarjetas de todos los compañeros que ya han contribuido. Cada tarjet
 
 **Pregunta 1:** ¿Qué archivo y qué líneas de código han provocado que tu contribución se despliegue automáticamente en el mural de clase al fusionarse el PR?
 
----
-
-## Actividades
-
-### Actividad 1: Personalizar el color de fondo
+### Paso 8: Personalizar el color de fondo
 
 Una vez tu contribución esté visible en el mural de clase, puedes cambiar el color de fondo de tu página individual:
 
@@ -236,7 +232,7 @@ Una vez tu contribución esté visible en el mural de clase, puedes cambiar el c
 
 **Pregunta 2:** ¿Qué archivo y qué líneas de código de tu repositorio individual han hecho que este cambio de color se despliegue automáticamente tras fusionar el PR?
 
-### Actividad 2: Provocar un fallo de validación
+### Paso 9: Provocar un fallo de validación
 
 Aprende qué pasa cuando la validación falla:
 
