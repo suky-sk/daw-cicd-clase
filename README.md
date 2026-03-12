@@ -124,7 +124,12 @@ git push origin feature/mi-pagina
 
 ## Parte 2: Contribuir al mural de la clase
 
-Ahora vas a añadir tu página al mural colectivo de la clase. Tu contribución será validada y fusionada **automáticamente** por los workflows de CI/CD del repositorio central.
+Ahora vas a añadir tu página al mural colectivo de la clase. Tu contribución será validada y fusionada **automáticamente** por el workflow del repositorio central.
+
+**Entregables**
+
+1. **Respuestas a las preguntas:** Un documento con las respuestas a la **Pregunta 1** (Paso 7) y a la **Pregunta 2** (Actividad 1).
+2. **Verificación web:** Tu página personal debe estar listada y visible correctamente en el mural de la clase.
 
 ### Paso 1: Hacer fork del repositorio de clase
 
@@ -133,14 +138,14 @@ Ahora vas a añadir tu página al mural colectivo de la clase. Tu contribución 
 2. Haz clic en **"Fork"** (esquina superior derecha).
 3. Crea el fork en tu cuenta (deja el nombre por defecto).
 
-### Paso 2: Clonar tu fork (1 min)
+### Paso 2: Clonar tu fork
 
 ```bash
 git clone https://github.com/TU-USUARIO/daw-cicd-clase.git
 cd daw-cicd-clase
 ```
 
-### Paso 3: Crear una rama (1 min)
+### Paso 3: Crear una rama
 
 ```bash
 git checkout -b feature/mi-contribucion
@@ -204,7 +209,7 @@ Observa lo que ocurre en tu PR **sin que nadie haga nada**:
 2. **Si pasa** → el PR se **fusiona automáticamente** (squash merge).
 3. **Inmediatamente después** → genera la galería y **despliega** en GitHub Pages.
 
-> Si el CI falla (X roja), lee el log en Actions, corrige tu archivo, haz commit y push. El CI se re-ejecutará.
+> Si falla (X roja), lee el log en Actions, corrige tu archivo, haz commit y push. El workflow se re-ejecutará.
 
 ### Paso 7: Comprobar el mural de clase
 
@@ -212,13 +217,15 @@ Accede a la URL del mural: `https://gtraver-edu.github.io/daw-cicd-clase/`
 
 Verás las tarjetas de todos los compañeros que ya han contribuido. Cada tarjeta muestra un iframe con la página personalizada de cada uno.
 
+**Pregunta 1:** ¿Qué archivo y qué líneas de código han provocado que tu contribución se despliegue automáticamente en el mural de clase al fusionarse el PR?
+
 ---
 
-## Actividades extra
+## Actividades
 
-### Extra 1: Personalizar el color de fondo
+### Actividad 1: Personalizar el color de fondo
 
-Una vez tu contribución esté visible en el mural de clase, puedes cambiar el color de fondo de tu página individual para que destaque entre las demás:
+Una vez tu contribución esté visible en el mural de clase, puedes cambiar el color de fondo de tu página individual:
 
 1. En tu repositorio individual, edita `style.css`.
 2. Busca la línea `background-color: #e0f7fa;` en el `body`.
@@ -227,7 +234,9 @@ Una vez tu contribución esté visible en el mural de clase, puedes cambiar el c
 5. Fusiona el PR y espera a que se despliegue.
 6. Comprueba que el iframe de tu tarjeta en el mural de clase ahora muestra tu nuevo color.
 
-### Extra 2: Provocar un fallo de validación
+**Pregunta 2:** ¿Qué archivo y qué líneas de código de tu repositorio individual han hecho que este cambio de color se despliegue automáticamente tras fusionar el PR?
+
+### Actividad 2: Provocar un fallo de validación
 
 Aprende qué pasa cuando la validación falla:
 
@@ -259,8 +268,8 @@ Aprende qué pasa cuando la validación falla:
 
 ## Preguntas de reflexión
 
-Cuando termines, piensa en estas preguntas:
+Cuando termines, piensa en estas preguntas (no es necesario entregarlas, pero son útiles para afianzar conceptos):
 
 1. ¿Qué diferencia hay entre CI y CD? ¿Cuándo se ejecuta cada uno?
 2. ¿Por qué trabajamos en ramas en vez de hacer push directo a `main`?
-3. ¿Qué pasaría si dos personas modificaran el mismo archivo a la vez?
+3. ¿Qué pasaría si dos personas modificaran el mismo archivo y ambas intentaran hacer un merge a `main`?
